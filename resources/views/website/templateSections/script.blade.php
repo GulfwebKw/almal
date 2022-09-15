@@ -1,0 +1,25 @@
+
+<script src='{{asset('/site_assets/js/vendor/jquery.js')}}' type='text/javascript'></script>
+<script src='{{asset('/site_assets/js/vendor/jquery-migrate.min.js')}}' type='text/javascript'></script>
+<script src='{{asset('/site_assets/js/vendor/essgrid/jquery.themepunch.tools.min.js')}}' type='text/javascript'></script>
+<script src='{{asset('/site_assets/js/vendor/essgrid/jquery.themepunch.essential.min.js')}}' type='text/javascript'></script>
+<script src='{{asset('/site_assets/js/vendor/revslider/jquery.themepunch.revolution.min.js')}}' type='text/javascript'></script>
+<script src="{{asset('/site_assets/js/vendor/revslider/revolution.extension.slideanims.min.js')}}" type="text/javascript"></script>
+<script src="{{asset('/site_assets/js/vendor/revslider/revolution.extension.layeranimation.min.js')}}" type="text/javascript"></script>
+<script src="{{asset('/site_assets/js/vendor/revslider/revolution.extension.navigation.min.js')}}" type="text/javascript"></script>
+<script src='{{asset('/site_assets/js/vendor/instagram/sb-instagram.min.js')}}' type='text/javascript'></script>
+<script src="{{asset('/site_assets/js/custom/custom.js')}}" type="text/javascript"></script>
+<script src='{{asset('/site_assets/js/vendor/superfish.js')}}' type='text/javascript'></script>
+<script src='{{asset('/site_assets/js/custom/_min.js')}}' type='text/javascript'></script>
+<script src='{{asset('/site_assets/js/custom/_utils.js')}}' type='text/javascript'></script>
+<script src='{{asset('/site_assets/js/custom/_init.js')}}' type='text/javascript'></script>
+<script src='{{asset('/site_assets/js/custom/_debug.js')}}' type='text/javascript'></script>
+<script src='{{asset('/site_assets/js/custom/_googlemap.js')}}' type='text/javascript'></script>
+<script src='{{asset('/site_assets/js/custom/template.init.js')}}' type='text/javascript'></script>
+<script src='{{asset('/site_assets/js/vendor/isotope.js')}}' type='text/javascript'></script>
+<script src='{{asset('/site_assets/js/vendor/mediaelement/mediaelement-and-player.min.js')}}' type='text/javascript'></script>
+<script src='{{asset('/site_assets/js/custom/_shortcodes.js')}}' type='text/javascript'></script>
+<script src='{{asset('/site_assets/js/custom/_messages.js')}}' type='text/javascript'></script>
+<script src='{{asset('/site_assets/js/vendor/magnific-popup/jquery.magnific-popup.min.js')}}' type='text/javascript'></script>
+<script src='http://maps.google.com/maps/api/js?key=' type='text/javascript'></script>
+    <script src='{{asset('/site_assets/js/vendor/swiper/swiper.js')}}' type='text/javascript'></script>

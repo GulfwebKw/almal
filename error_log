@@ -1,0 +1,34 @@
+[02-Oct-2021 12:53:06 Asia/Tehran] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 7.3.0". You are running 7.2.34. in /home/gulfwebi/demo.gulfweb.ir/vendor/composer/platform_check.php on line 24
+[02-Nov-2021 17:25:13 Asia/Tehran] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 7.4.0". You are running 7.3.30. in /home/gulfwebi/almal.gulfweb.ir/vendor/composer/platform_check.php on line 24
+[02-Nov-2021 16:56:50 Asia/Kuwait] PHP Deprecated:  Required parameter $orders follows optional parameter $payMode in /home/gulfwebi/almal.gulfweb.ir/app/Http/Controllers/Admin/Common.php on line 210
+[02-Nov-2021 16:56:50 Asia/Kuwait] PHP Deprecated:  Required parameter $paymentId follows optional parameter $payMode in /home/gulfwebi/almal.gulfweb.ir/app/Http/Controllers/Admin/Common.php on line 306
+[02-Nov-2021 16:56:50 Asia/Kuwait] PHP Deprecated:  Required parameter $metrics follows optional parameter $dimensions in /home/gulfwebi/almal.gulfweb.ir/app/Gapi/Gapi.php on line 124
+[03-Nov-2021 00:47:32 Asia/Kuwait] PHP Deprecated:  Required parameter $orders follows optional parameter $payMode in /home/gulfwebi/almal.gulfweb.ir/app/Http/Controllers/Admin/Common.php on line 210
+[03-Nov-2021 00:47:32 Asia/Kuwait] PHP Deprecated:  Required parameter $paymentId follows optional parameter $payMode in /home/gulfwebi/almal.gulfweb.ir/app/Http/Controllers/Admin/Common.php on line 306
+[03-Nov-2021 00:47:32 Asia/Kuwait] PHP Deprecated:  Required parameter $metrics follows optional parameter $dimensions in /home/gulfwebi/almal.gulfweb.ir/app/Gapi/Gapi.php on line 124
+[03-Nov-2021 01:08:50 Asia/Kuwait] PHP Deprecated:  Required parameter $orders follows optional parameter $payMode in /home/gulfwebi/almal.gulfweb.ir/app/Http/Controllers/Admin/Common.php on line 210
+[03-Nov-2021 01:08:50 Asia/Kuwait] PHP Deprecated:  Required parameter $paymentId follows optional parameter $payMode in /home/gulfwebi/almal.gulfweb.ir/app/Http/Controllers/Admin/Common.php on line 306
+[03-Nov-2021 01:11:58 Asia/Kuwait] PHP Deprecated:  Required parameter $metrics follows optional parameter $dimensions in /home/gulfwebi/almal.gulfweb.ir/app/Gapi/Gapi.php on line 124
+[03-Nov-2021 01:14:00 Asia/Kuwait] PHP Deprecated:  Required parameter $orders follows optional parameter $payMode in /home/gulfwebi/almal.gulfweb.ir/app/Http/Controllers/Common.php on line 214
+[03-Nov-2021 01:14:00 Asia/Kuwait] PHP Deprecated:  Required parameter $paymentId follows optional parameter $payMode in /home/gulfwebi/almal.gulfweb.ir/app/Http/Controllers/Common.php on line 310
+[03-Nov-2021 01:14:31 Asia/Kuwait] PHP Deprecated:  Required parameter $orders follows optional parameter $payMode in /home/gulfwebi/almal.gulfweb.ir/app/Http/Controllers/Admin/Common.php on line 210
+[03-Nov-2021 01:14:31 Asia/Kuwait] PHP Deprecated:  Required parameter $paymentId follows optional parameter $payMode in /home/gulfwebi/almal.gulfweb.ir/app/Http/Controllers/Admin/Common.php on line 306
+[03-Nov-2021 01:23:09 Asia/Kuwait] PHP Deprecated:  Required parameter $metrics follows optional parameter $dimensions in /home/gulfwebi/almal.gulfweb.ir/app/Gapi/Gapi.php on line 124
+[03-Nov-2021 09:04:11 Asia/Kuwait] PHP Deprecated:  Required parameter $orders follows optional parameter $payMode in /home/gulfwebi/almal.gulfweb.ir/app/Http/Controllers/Admin/Common.php on line 210
+[03-Nov-2021 09:04:11 Asia/Kuwait] PHP Deprecated:  Required parameter $paymentId follows optional parameter $payMode in /home/gulfwebi/almal.gulfweb.ir/app/Http/Controllers/Admin/Common.php on line 306
+[03-Nov-2021 09:04:11 Asia/Kuwait] PHP Deprecated:  Required parameter $metrics follows optional parameter $dimensions in /home/gulfwebi/almal.gulfweb.ir/app/Gapi/Gapi.php on line 124
+[03-Nov-2021 09:10:39 Asia/Kuwait] PHP Deprecated:  Required parameter $metrics follows optional parameter $dimensions in /home/gulfwebi/almal.gulfweb.ir/app/Gapi/Gapi.php on line 124
+[03-Nov-2021 09:18:35 Asia/Kuwait] PHP Deprecated:  Required parameter $metrics follows optional parameter $dimensions in /home/gulfwebi/almal.gulfweb.ir/app/Gapi/Gapi.php on line 124
+[03-Nov-2021 09:19:08 Asia/Kuwait] PHP Deprecated:  Required parameter $orders follows optional parameter $payMode in /home/gulfwebi/almal.gulfweb.ir/app/Http/Controllers/Admin/Common.php on line 210
+[03-Nov-2021 09:19:08 Asia/Kuwait] PHP Deprecated:  Required parameter $paymentId follows optional parameter $payMode in /home/gulfwebi/almal.gulfweb.ir/app/Http/Controllers/Admin/Common.php on line 306
+[03-Nov-2021 09:22:02 Asia/Kuwait] PHP Deprecated:  Required parameter $orders follows optional parameter $payMode in /home/gulfwebi/almal.gulfweb.ir/app/Http/Controllers/Admin/Common.php on line 210
+[03-Nov-2021 09:22:02 Asia/Kuwait] PHP Deprecated:  Required parameter $paymentId follows optional parameter $payMode in /home/gulfwebi/almal.gulfweb.ir/app/Http/Controllers/Admin/Common.php on line 306
+[03-Nov-2021 09:28:50 Asia/Kuwait] PHP Deprecated:  Required parameter $orders follows optional parameter $payMode in /home/gulfwebi/almal.gulfweb.ir/app/Http/Controllers/Admin/Common.php on line 210
+[03-Nov-2021 09:28:50 Asia/Kuwait] PHP Deprecated:  Required parameter $paymentId follows optional parameter $payMode in /home/gulfwebi/almal.gulfweb.ir/app/Http/Controllers/Admin/Common.php on line 306
+[03-Nov-2021 09:32:22 Asia/Kuwait] PHP Deprecated:  Required parameter $orders follows optional parameter $payMode in /home/gulfwebi/almal.gulfweb.ir/app/Http/Controllers/Admin/Common.php on line 210
+[03-Nov-2021 09:32:22 Asia/Kuwait] PHP Deprecated:  Required parameter $paymentId follows optional parameter $payMode in /home/gulfwebi/almal.gulfweb.ir/app/Http/Controllers/Admin/Common.php on line 306
+[03-Nov-2021 09:32:22 Asia/Kuwait] PHP Deprecated:  Required parameter $metrics follows optional parameter $dimensions in /home/gulfwebi/almal.gulfweb.ir/app/Gapi/Gapi.php on line 124
+[28-Dec-2021 15:39:50 Asia/Kuwait] PHP Deprecated:  Required parameter $orders follows optional parameter $payMode in /home/gulfwebi/almal.gulfweb.ir/app/Http/Controllers/Admin/Common.php on line 210
+[28-Dec-2021 15:39:50 Asia/Kuwait] PHP Deprecated:  Required parameter $paymentId follows optional parameter $payMode in /home/gulfwebi/almal.gulfweb.ir/app/Http/Controllers/Admin/Common.php on line 306
+[06-Feb-2022 15:14:33 Asia/Tehran] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 7.4.0". You are running 7.2.34. in /home/gulfwebi/almal.gulfweb.ir/vendor/composer/platform_check.php on line 24
+[06-Feb-2022 15:15:15 Asia/Tehran] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 7.4.0". You are running 7.2.34. in /home/gulfwebi/almal.gulfweb.ir/vendor/composer/platform_check.php on line 24
