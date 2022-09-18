@@ -93,11 +93,12 @@ class WebController extends Controller
         $category = Category::where('id', $id)->with('singlePage', 'parent')->first();
         $children = collect();
         $children->push($category);
-        if (count($category->children)) {
-            $children = $category->children;
+        if (count($category->childrenRecursive)) {
+            $children = $category->childrenRecursive;
         } elseif ($category->parent_id) {
             $children = Category::find($category->parent_id)->children;
         }
+        // dd($category, $children);
         $title = "Home";
         $settings = Settings::where("keyname", "setting")->first();
         return view('website.pages.singlePage', compact('children', 'title', 'settings', 'category'));

@@ -53,7 +53,12 @@
                         <ul>
                             @foreach($children as $child)
                                 <li class="cat-item">
-                                    <a href="{{$child->link?url($child->link):route('category.singlepage', [$child->id, $child->slug])}}"><span>{{$child->translate($lang)->title}}</span></a>
+                                    <a href="{{$child->link?url($child->link):route('category.singlepage', [$child->id, $child->slug])}}"><span style="{{ basename(url()->current()) == $child->slug ? 'color: #0058a2' : '' }}">{{$child->translate($lang)->title}}</span></a>
+                                    @foreach($child->childrenRecursive as $chi)
+                                        <li class="cat-item margin_right_small">
+                                            <a href="{{$chi->link?url($chi->link):route('category.singlepage', [$chi->id, $chi->slug])}}"><span style="{{ basename(url()->current()) == $chi->slug ? 'color: #0058a2' : '' }}">{{$chi->translate($lang)->title}}</span></a>
+                                        </li>
+                                    @endforeach
                                 </li>
                             @endforeach
                         </ul>
