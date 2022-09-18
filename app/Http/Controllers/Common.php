@@ -211,7 +211,7 @@ class Common extends Controller
 
     //send payment
     ###########Send Payment (Offline)###########
-    public static function SendPayment($payMode = 0, $orders)
+    public static function SendPayment($payMode = 0, $orders = null)
     {
 
         if (empty($orders)) {
@@ -307,7 +307,7 @@ class Common extends Controller
     }
 
     //get payment status
-    public static function callBackPayment($payMode = 0, $paymentId)
+    public static function callBackPayment($payMode = 0, $paymentId = null)
     {
 
         if (empty($payMode)) {
