@@ -25,7 +25,7 @@
                     <section class="post_content">
                         <form action="/disclosures" method="get" id="calender">
                         <select name="calender" class="select_box" onchange="calenderChange()">
-                            <option @if(request()->calender==null) selected @endif  value="">--All--</option>
+                            <option @if(request()->calender==null) selected @endif  value="">{{ app()->getLocale() == 'en' ? '--All--' : '--الكل--' }}</option>
                             <option @if(request()->calender=="2022") selected @endif>2022</option>
                             <option @if(request()->calender=="2021") selected @endif>2021</option>
                             <option @if(request()->calender=="2020") selected @endif>2020</option>
@@ -56,7 +56,7 @@
                                         <div class="post_content isotope_item_content">
                                             <h5 class="post_title"><a href="{{route('disclosures.single', $item->id)}}">{{$item['title_'.$lang]}}</a></h5>
                                             <div class="post_info">
-                                                <span class="post_info_item"><a class="post_info_date" href="{{url('#')}}">{{$item->date}}</a></span>
+                                                <span class="post_info_item"><a class="post_info_date" href="{{url('#')}}">{{Carbon\Carbon::parse($item->date)->translatedFormat('d F Y')}}</a></span>
                                             </div>
                                             <div class="post_descr">
                                                 <p>{!! \Illuminate\Support\Str::limit(strip_tags($item['details_'.$lang]), 50) !!}</p>

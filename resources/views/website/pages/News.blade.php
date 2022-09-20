@@ -31,10 +31,17 @@
                                     <span class="post_categories"><a class="category_link" href="{{url('#')}}">{{$item->type}}</a></span>
                                 </div>
                             </div>
+{{--                            @php--}}
+{{--                                app()->setLocale('ar');--}}
+{{--                                // setlocale(LC_TIME, 'ar_AE');--}}
+{{--                                // dd(Carbon::getAvailableLocales());--}}
+{{--                                // dd(Carbon\Carbon::parse($item->created_at)->formatLocalized('ar_KW')/*->locale('ar_AE')*//*->format('Y F d')*/);--}}
+{{--                                dd(Carbon\Carbon::now()->translatedFormat('l j F Y H:i:s'));--}}
+{{--                            @endphp--}}
                             <div class="post_content isotope_item_content">
                                 <h5 class="post_title"><a href="{{route('news.singlepage', [$item->id, $item->slug])}}">{{$item['title_'.$lang]}}</a></h5>
                                 <div class="post_info">
-                                    <span class="post_info_item"><a class="post_info_date" href="{{url('#')}}">{{$item->created_at}}</a></span>
+                                    <span class="post_info_item"><a class="post_info_date" href="{{url('#')}}">{{ Carbon\Carbon::parse($item->created_at)->translatedFormat('d F Y') }}</a></span>
                                 </div>
                                 <div class="post_descr">
                                     {{html_entity_decode(\Illuminate\Support\Str::limit(strip_tags($item['description_'.$lang]), 100, '...'))}}
