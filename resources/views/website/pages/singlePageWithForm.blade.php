@@ -46,7 +46,12 @@
                         @elseif($errors->any())
                             <h4 style="background-color: #aa0000;;color: white;padding: 10px;border-radius: 5px;text-align: center;">{{$errors->first()}}</h4>
                         @endif
-                        <strong>For further information, please fill the following form:</strong><br/><br/>
+                        <strong>
+                            {{ app()->getLocale() == 'en' ?
+                            'For further information, please fill the following form:' :
+                            'لمزيد من المعلومات ، يرجى ملء النموذج التالي:'
+                            }}
+                        </strong><br/><br/>
                 <form action="{{route('educations.post')}}" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="sc_columns columns_wrap sc_form_info">

@@ -26,7 +26,7 @@
                     <section class="post_content">
                         <form action="/quarterly" method="get" id="calender">
                             <select name="calender" class="select_box" onchange="calenderChange()">
-                                <option @if(request()->calender==null) selected @endif value="">--All--</option>
+                                <option @if(request()->calender==null) selected @endif value="">{{ app()->getLocale() == 'en' ? '--All--' : '--الكل--' }}</option>
                                 <option @if(request()->calender=="2022") selected @endif value="2022">2022</option>
                                 <option @if(request()->calender=="2021") selected @endif value="2021">2021</option>
                                 <option @if(request()->calender=="2020") selected @endif value="2020">2020</option>

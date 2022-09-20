@@ -4,10 +4,12 @@
              style="background-image:url(/site_assets/images/contact_bg.jpg);">
         <div class="top_panel_image_hover"></div>
         <div class="top_panel_image_header">
-            <h1 class="top_panel_image_title">Contacts</h1>
+            <h1 class="top_panel_image_title">{{ app()->getLocale() == 'en' ? 'Contacts' : 'معلومات الأتصال والعنوان' }}</h1>
             <div class="breadcrumbs">
-                <a class="breadcrumbs_item home" href="/">Home</a> <span class="breadcrumbs_delimiter"></span> Contact
-                Us<span class="breadcrumbs_delimiter"></span> <span class="breadcrumbs_item current">Contacts</span>
+                <a class="breadcrumbs_item home" href="/">
+                    @if($lang=='en')Home @else الرئيسية @endif
+                </a> <span class="breadcrumbs_delimiter"></span>
+                {{ app()->getLocale() == 'en' ? 'Contact Us' : 'اتصل بنا' }} <!--<span class="breadcrumbs_delimiter"></span> <span class="breadcrumbs_item current">Contacts</span>-->
             </div>
         </div>
     </section>

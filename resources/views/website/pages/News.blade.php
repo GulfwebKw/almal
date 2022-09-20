@@ -5,10 +5,12 @@
              style="background-image:url({{url('/uploads/categories/'.$category->image)}});">
         <div class="top_panel_image_hover"></div>
         <div class="top_panel_image_header">
-            <h1 class="top_panel_image_title">{{$category->title}}</h1>
+            <h1 class="top_panel_image_title">{{$category->translate($lang)->title}}</h1>
             <div class="breadcrumbs">
-                <a class="breadcrumbs_item home" href="{{url('/')}}">Home</a> <span class="breadcrumbs_delimiter"></span>
-                {{$category['parent']->title}} <span class="breadcrumbs_delimiter"></span> <span class="breadcrumbs_item current">{{$category->title}}</span>
+                <a class="breadcrumbs_item home" href="{{url('/')}}">
+                    @if($lang=='en')Home @else الرئيسية @endif
+                </a> <span class="breadcrumbs_delimiter"></span>
+                {{$category['parent']->translate($lang)->title}} <span class="breadcrumbs_delimiter"></span> <span class="breadcrumbs_item current">{{$category->translate($lang)->title}}</span>
             </div>
         </div>
     </section>
