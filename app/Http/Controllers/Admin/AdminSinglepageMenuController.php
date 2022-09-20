@@ -182,13 +182,23 @@ class AdminSinglepageMenuController extends Controller
 
         $image = $resource->image;
         $header_image = $resource->header_image;
-        if ($request->hasfile('image')) {
-            $image = Common::editImage($request, 'image', $this->path, $this->image_big_w, $this->image_big_h, $this->image_thumb_w, $this->image_thumb_h, $resource);
-        }
-        if ($request->hasFile('header_image')) {
 
+        if ($request->hasfile('image'))
+            $image = Common::editImage($request, 'image', $this->path, $this->image_big_w, $this->image_big_h, $this->image_thumb_w, $this->image_thumb_h, $resource);
+
+        if ($request->hasFile('header_image'))
             $header_image = Common::editImage($request, 'header_image', $this->path, $this->image_big_w, $this->image_big_h, $this->image_thumb_w, $this->image_thumb_h, $resource);
+
+        if ($request->remove_image) {
+            $web_image_path = "/uploads/" . $this->path . '/' . $image;
+            // dd($web_image_path);
+            !file_exists($web_image_path) ?: unlink($web_image_path);
+            $web_image_paththumb = "/uploads/" . $this->path . "/thumb/" . $image;
+            !file_exists($web_image_paththumb) ?: unlink($web_image_paththumb);
+            $image = null;
         }
+
+
         $resource->title_en = $request->input('title_en');
         $resource->title_ar = $request->input('title_ar');
         $resource->category_id = $request->input('category_id');

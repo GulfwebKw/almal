@@ -102,7 +102,7 @@
             <div class="form-group">
                 <div class="row">
                     <div class="col-md-6">
-                        <label>{{__('adminMessage.image')}}(1920 X 800)</label>
+                        <label>{{__('adminMessage.image')}}(1920 X 800)</label> remove? <input type="checkbox" name="remove_image">
                         <div class="custom-file @if($errors->has('image')) is-invalid @endif">
                             <input type="file" class="custom-file-input @if($errors->has('image')) is-invalid @endif"
                                    id="image" name="image">
