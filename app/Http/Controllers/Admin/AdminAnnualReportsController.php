@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\AnnualReport;
 use App\Subsidiary;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Settings;
 use Auth;
@@ -94,18 +95,24 @@ class AdminAnnualReportsController extends Controller
         $this->validate($request, [
             'display_order' => 'required|numeric|unique:annual_reports,display_order',
             'date' => 'required',
-            'image' => 'required',
-            
+            'file_en' => 'required',
+            'file_ar' => 'required',
         ]);
-        //upload image
-        if (isset($request->image)) {
-            $cover_image = Common::uploadImage($request, 'image', $this->path, $this->image_big_w, $this->image_big_h, $this->image_thumb_w, $this->image_thumb_h);
+        //upload file
+        if (isset($request->file_en)) {
+            $file_en_name = Carbon::parse($request->date)->format('j F Y') . '.' . $request->file_en->extension();
+            $request->file('file_en')->storeAs('annual-reports', $file_en_name, 'uploads');
+        }
+        if (isset($request->file_ar)) {
+            $file_ar_name = Carbon::parse($request->date)->format('j F Y') . ' Arabic' . '.' . $request->file_ar->extension();
+            $request->file('file_ar')->storeAs('annual-reports', $file_ar_name, 'uploads');
         }
         $resource = new AnnualReport();
         $resource->date = $request->input('date');
         $resource->is_active = !empty($request->input('is_active')) ? '1' : '0';
         $resource->display_order = !empty($request->input('display_order')) ? $request->input('display_order') : '0';
-        $resource->image = $cover_image;
+        $resource->file_en = $file_en_name;
+        $resource->file_ar = $file_ar_name;
         $resource->save();
 
         //save logs
@@ -135,14 +142,18 @@ class AdminAnnualReportsController extends Controller
 
     public function download($id)
     {
-        $name = AnnualReport::find($id)->image;
-        $file= public_path(). "/uploads/annual-reports/".$name;
+        if (request()->lang === 'ar')
+            $resource = AnnualReport::find($id)->file_ar;
+        else
+            $resource = AnnualReport::find($id)->file_en;
+
+        $file= public_path(). "/uploads/annual-reports/".$resource;
 
         $headers = array(
             'Content-Type: application/pdf',
         );
 
-        return Response::download($file, $name, $headers);
+        return Response::download($file, $resource, $headers);
     }
 
 
@@ -168,22 +179,29 @@ class AdminAnnualReportsController extends Controller
         $this->validate($request, [
             'display_order' => 'required|numeric|unique:annual_reports,display_order,' . $id,
             'date' => 'required|string',
-
         ]);
 
         $resource = $this->model::find($id);
-        $cover_image = $resource->image;
-           if (isset($request->image)) {
-            $cover_image = Common::editImage($request, 'image', $this->path, $this->image_big_w, $this->image_big_h, $this->image_thumb_w, $this->image_thumb_h, $resource);
+
+        $file_en_name = $resource->file_en_name;
+        if (isset($request->file_en)) {
+            $file_en_name = Carbon::parse($request->date)->format('j F Y') . '.' . $request->file_en->extension();
+            $request->file('file_en')->storeAs('annual-reports', $file_en_name, 'uploads');
         }
 
+        $file_ar_name = $resource->file_ar_name;
+        if (isset($request->file_ar)) {
+            $file_ar_name = Carbon::parse($request->date)->format('j F Y') . ' Arabic' . '.' . $request->file_ar->extension();
+            $request->file('file_ar')->storeAs('annual-reports', $file_ar_name, 'uploads');
+        }
 
 
         $resource->date = $request->input('date');
 
         $resource->is_active = !empty($request->input('is_active')) ? '1' : '0';
         $resource->display_order = !empty($request->input('display_order')) ? $request->input('display_order') : '0';
-        $resource->image = $cover_image;;
+        $resource->file_en = $file_en_name;
+        $resource->file_ar = $file_ar_name;
         $resource->save();
         //save logs
         $key_name = $this->title;

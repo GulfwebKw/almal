@@ -49,8 +49,15 @@
                             @foreach($quarterlys as $item)
                             <div class="isotope_item isotope_item_classic isotope_item_classic_4 isotope_column_4">
                                 <div style="text-align: center" class="post_item post_item_classic post_item_classic_3 post_format_standard annual">
-                                    <a href="{{route('quarterly.download', $item->id)}}" target="_blank"><img src="{{asset('/default.jpg')}}" alt="" >
-                                        <div class="annul_date">{{Carbon\Carbon::parse($item->date)->translatedFormat('d F Y')}}</div></a>
+                                    @php $params = app()->getLocale() == 'en' ? [$item->id] : [$item->id, 'lang' => 'ar']; @endphp
+                                    <a href="{{route('quarterly.download', $params)}}" target="_blank">
+                                        @if(app()->getLocale() == 'en')
+                                            <img src="{{asset('/quarterly_en.jpg')}}" alt="quarterly_en">
+                                        @else
+                                            <img src="{{asset('/quarterly_ar.jpg')}}" alt="quarterly_ar">
+                                        @endif
+                                        <div class="annu_date">{{Carbon\Carbon::parse($item->date)->translatedFormat('d F Y')}}</div>
+                                    </a>
                                 </div>
                             </div>
                             @endforeach

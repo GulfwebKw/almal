@@ -48,8 +48,15 @@
                             @foreach($annuals as $item)
                             <div class="isotope_item isotope_item_classic isotope_item_classic_4 isotope_column_4">
                                 <div style="text-align: center" class="post_item post_item_classic post_item_classic_3 post_format_standard annual">
-                                    <a href="{{route('annual.download', $item->id)}}" target="_blank"><img src="{{asset('/default.jpg')}}" alt="" >
-                                        <div class="annu_date">{{Carbon\Carbon::parse($item->date)->translatedFormat('d F Y')}}</div></a>
+                                    @php $params = app()->getLocale() == 'en' ? [$item->id] : [$item->id, 'lang' => 'ar']; @endphp
+                                    <a href="{{route('annual.download', $params)}}" target="_blank">
+                                        @if(app()->getLocale() == 'en')
+                                            <img src="{{asset('/annual_en.jpg')}}" alt="" >
+                                        @else
+                                            <img src="{{asset('/annual_ar.jpg')}}" alt="" >
+                                        @endif
+                                        <div class="annu_date">{{Carbon\Carbon::parse($item->date)->translatedFormat('d F Y')}}</div>
+                                    </a>
                                 </div>
                             </div>
                             @endforeach

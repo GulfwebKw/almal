@@ -108,13 +108,29 @@
             <div class="form-group">
                 <div class="row">
                     <div class="col-lg-6">
-                        <!-- image -->
-                        @php $label = "File"; @endphp
-                        @php $field = 'image'; @endphp
-                        @component('gwc.components.createImageUpload', [
-                            'label' => $label,
-                            'name' => $field,
-                        ]) @endcomponent
+
+                        <div class="col-md-12 mt-3">
+                            <label for="file_en">File En</label>
+                            <div class="custom-file">
+                                <input type="file" name="file_en" class="custom-file-input" id="file_en">
+                                <label class="custom-file-label" for="file_en">Choose file</label>
+                            </div>
+                            @if($errors->has('file_en'))
+                                <div class="invalid-feedback">{{ $errors->first('file_en') }}</div>
+                            @endif
+                        </div>
+
+                        <div class="col-md-12 mt-3">
+                            <label for="file_ar">File Ar</label>
+                            <div class="custom-file">
+                                <input type="file" name="file_ar" class="custom-file-input" id="file_ar">
+                                <label class="custom-file-label" for="file_ar">Choose file</label>
+                            </div>
+                            @if($errors->has('file_ar'))
+                                <div class="invalid-feedback">{{ $errors->first('file_ar') }}</div>
+                            @endif
+                        </div>
+
                     </div>
                 </div>
             </div>

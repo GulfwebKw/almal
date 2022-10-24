@@ -26,11 +26,17 @@
                         {!! html_entity_decode($disclosure['details_'.$lang]) !!}
 
 
-                    @if($disclosure->image!=null)
-                        <div>
-                            <a  href="{{route('disclosures.download',$disclosure->id)}}"><span style="color: #1e85be;text-decoration: underline;">{{$disclosure->image?"Almal ".$disclosure->date:null}}</span></a>
-                        </div>
-                    @endif
+
+                @if(app()->getLocale() == 'en' && $disclosure->file_en != null)
+                    <div>
+                        <a  href="{{route('disclosures.download',$disclosure->id)}}"><span style="border-left: solid 5px #1e85be; padding: 2px 6px; color: #1e85be;text-decoration: underline;">{{$disclosure->file_en?"Almal ".$disclosure->date:null}}</span></a>
+                    </div>
+                @elseif(app()->getLocale() == 'ar' && $disclosure->file_ar != null)
+                    <div>
+                        <a  href="{{route('disclosures.download',$disclosure->id)}}"><span style="border-left: solid 5px #1e85be; padding: 2px 6px; color: #1e85be;text-decoration: underline;">{{$disclosure->file_ar?"Almal ".$disclosure->date:null}}</span></a>
+                    </div>
+                @endif
+
                 <article class="itemscope post_item post_item_single post_featured_default post_format_gallery">
                     <section class="post_content">
                         <p>

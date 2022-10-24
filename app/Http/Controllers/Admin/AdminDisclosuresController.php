@@ -6,6 +6,7 @@ use App\AnnualReport;
 use App\Disclosure;
 use App\Singlepage;
 use App\Category_almal;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Settings;
 use Auth;
@@ -97,8 +98,6 @@ class AdminDisclosuresController extends Controller
             'display_order' => 'required|numeric|unique:disclosures,display_order',
             'title_en' => 'required|string',
             'title_ar' => 'required|string',
-            'details_en' => 'required|string',
-            'details_ar' => 'required|string',
         ]);
 
         //upload image
@@ -107,14 +106,19 @@ class AdminDisclosuresController extends Controller
                 rename(public_path('uploads/junk/' . $image), public_path('uploads/' . $this->path . '/' . $image));
             }
         }
-        $cover_image=null;
-        if (isset($request->image)) {
-            $cover_image = Common::uploadImage($request, 'image', $this->path, $this->image_big_w, $this->image_big_h, $this->image_thumb_w, $this->image_thumb_h);
+        //upload file
+        if (isset($request->file_en)) {
+            $file_en_name = $request->title_en . '.' . $request->file_en->extension();
+            $request->file('file_en')->storeAs('disclosures', $file_en_name, 'uploads');
         }
+        if (isset($request->file_ar)) {
+            $file_ar_name = $request->title_en . ' Arabic' . '.' . $request->file_ar->extension();
+            $request->file('file_ar')->storeAs('disclosures', $file_ar_name, 'uploads');
+        }
+
         $resource = new Disclosure();
         $resource->slug = Common::createSlug('Disclosure', $request->title_en);
         $resource->title_en = $request->input('title_en');
-        $resource->image = $cover_image;
         $resource->date = $request->input('date');
         $resource->title_ar = $request->input('title_ar');
         $resource->details_en = $request->input('details_en');
@@ -122,6 +126,8 @@ class AdminDisclosuresController extends Controller
         $resource->is_active = !empty($request->input('is_active')) ? '1' : '0';
         $resource->display_order = !empty($request->input('display_order')) ? $request->input('display_order') : '0';
         $resource->images = $request->images? implode(",", $request->images):'';
+        $resource->file_en = $file_en_name ?? null;
+        $resource->file_ar = $file_ar_name ?? null;
         $resource->save();
 
         //save logs
@@ -164,14 +170,18 @@ class AdminDisclosuresController extends Controller
 
     public function download($id)
     {
-        $name = Disclosure::find($id)->image;
-        $file= public_path(). "/uploads/" .$this->path ."/".$name;
+        if (request()->lang === 'ar')
+            $resource = Disclosure::find($id)->file_ar;
+        else
+            $resource = Disclosure::find($id)->file_en;
+
+        $file= public_path(). "/uploads/" .$this->path ."/".$resource;
 
         $headers = array(
             'Content-Type: application/pdf',
         );
 
-        return Response::download($file, $name, $headers);
+        return Response::download($file, $resource, $headers);
     }
 
 
@@ -185,14 +195,18 @@ class AdminDisclosuresController extends Controller
             'display_order' => 'required|numeric|unique:disclosures,display_order,' . $id,
             'title_en' => 'required|string',
             'title_ar' => 'required|string',
-            'details_en' => 'required|string',
-            'details_ar' => 'required|string',
         ]);
-        $cover_image=null;
 
         $resource = $this->model::find($id);
-        if (isset($request->image)) {
-            $cover_image = Common::editImage($request, 'image', $this->path, $this->image_big_w, $this->image_big_h, $this->image_thumb_w, $this->image_thumb_h, $resource);
+
+        //upload file
+        if (isset($request->file_en)) {
+            $file_en_name = $request->title_en . '.' . $request->file_en->extension();
+            $request->file('file_en')->storeAs('disclosures', $file_en_name, 'uploads');
+        }
+        if (isset($request->file_ar)) {
+            $file_ar_name = $request->title_en . ' Arabic' . '.' . $request->file_ar->extension();
+            $request->file('file_ar')->storeAs('disclosures', $file_ar_name, 'uploads');
         }
 
         $images = $resource->images;
@@ -212,7 +226,8 @@ class AdminDisclosuresController extends Controller
         $resource->title_en = $request->input('title_en');
         $resource->date = $request->input('date');
         $resource->title_ar = $request->input('title_ar');
-        $resource->image = $cover_image;
+        $resource->file_en = $file_en_name ?? $resource->file_en;
+        $resource->file_ar = $file_ar_name ?? $resource->file_ar;
         $resource->details_en = $request->input('details_en');
         $resource->details_ar = $request->input('details_ar');
         $resource->is_active = !empty($request->input('is_active')) ? '1' : '0';
