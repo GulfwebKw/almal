@@ -307,7 +307,7 @@ class Common extends Controller
     }
 
     //get payment status
-    public static function callBackPayment($payMode = 0, $paymentId = null)
+    public static function callBackPayment($payMode = 0, $paymentId = null )
     {
 
         if (empty($payMode)) {
