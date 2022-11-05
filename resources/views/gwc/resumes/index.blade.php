@@ -44,7 +44,7 @@
                     </td>
 
                     <td>
-                        {!! $resource['job']->title_en !!}
+                        {!! optional($resource['job'])->title_en !!}
                     </td>
                     <td>
                         {!! $resource->created_at !!}

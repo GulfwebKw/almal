@@ -26,28 +26,28 @@
                         {!! html_entity_decode($disclosure['details_'.$lang]) !!}
 
 
-
+                @php $params = app()->getLocale() == 'en' ? [$disclosure->id] : [$disclosure->id, 'lang' => 'ar']; @endphp
                 @if(app()->getLocale() == 'en' && $disclosure->file_en != null)
                     <div>
-                        <a  href="{{route('disclosures.download',$disclosure->id)}}"><span style="border-left: solid 5px #1e85be; padding: 2px 6px; color: #1e85be;text-decoration: underline;">{{$disclosure->file_en?"Almal ".$disclosure->date:null}}</span></a>
+                        <a href="{{route('disclosures.download',$params)}}"><span style="border-left: solid 5px #1e85be; padding: 2px 6px; color: #1e85be;text-decoration: underline;">{{$disclosure->file_en?"Almal ".$disclosure->date:null}}</span></a>
                     </div>
                 @elseif(app()->getLocale() == 'ar' && $disclosure->file_ar != null)
                     <div>
-                        <a  href="{{route('disclosures.download',$disclosure->id)}}"><span style="border-left: solid 5px #1e85be; padding: 2px 6px; color: #1e85be;text-decoration: underline;">{{$disclosure->file_ar?"Almal ".$disclosure->date:null}}</span></a>
+                        <a href="{{route('disclosures.download',$params)}}"><span style="border-left: solid 5px #1e85be; padding: 2px 6px; color: #1e85be;text-decoration: underline;">{{$disclosure->file_ar?"Almal ".$disclosure->date:null}}</span></a>
                     </div>
                 @endif
 
-                <article class="itemscope post_item post_item_single post_featured_default post_format_gallery">
-                    <section class="post_content">
-                        <p>
-                            @foreach(explode(',', $disclosure->images) as $image)
-                            <img src="{{asset('/uploads/disclosures/'.$image)}}"><br/><br/>
-                            @endforeach
-                        </p>
-
-                    </section>
-
-                </article>
+                @if(!empty($disclosure->images))
+                    <article class="itemscope post_item post_item_single post_featured_default post_format_gallery">
+                        <section class="post_content">
+                            <p>
+                                @foreach(explode(',', $disclosure->images) as $image)
+                                <img src="{{asset('/uploads/disclosures/'.$image)}}"><br/><br/>
+                                @endforeach
+                            </p>
+                        </section>
+                    </article>
+                @endif
             </div>
             <div class="sidebar widget_area scheme_original">
                 <div class="sidebar_inner widget_area_inner">

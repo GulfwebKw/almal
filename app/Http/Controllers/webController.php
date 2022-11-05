@@ -469,7 +469,7 @@ class WebController extends Controller
             'school'=>'required',
             'installments_number'=>'required',
             'amount'=>'required',
-            'image'=>'required',
+            'image'=>'required|image',
             'captcha' => 'required|captcha',
         ],
             ['captcha.captcha'=>'Invalid captcha code.']);

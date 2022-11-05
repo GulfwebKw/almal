@@ -11,7 +11,7 @@
                             <ul class="sc_list sc_list_style_iconed custom_cl_1">
                                 <li class="sc_list_item"><span class="sc_list_icon icon-location-light custom_cl_2"></span>{{getSetting('setting')['address_'.$lang]}}</li>
                                 <li class="sc_list_item"><span class="sc_list_icon icon-mobile-light custom_cl_2"></span>Phone: {{getSetting('setting')->phone}}</li>
-                                <li class="sc_list_item"><span class="sc_list_icon icon-mail-light custom_cl_2"></span>Email: {{getSetting('setting')->email}}</li>
+                                <li class="sc_list_item"><span class="sc_list_icon icon-mail-light custom_cl_2"></span>Email: {!! str_replace('@', '<span style="font-family: arial">@</span>', getSetting('setting')->email) !!}</li>
                             </ul>
                         </div>
                     </div>

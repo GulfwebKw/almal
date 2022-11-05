@@ -2,7 +2,7 @@
 
 @else
     <li class="kt-menu__item  kt-menu__item--submenu" aria-haspopup="true" data-ktmenu-submenu-toggle="hover">
-        <a href="{{url('gwc/'.$category->link)}}" class="kt-menu__link @if($category->link=='javascript:;') kt-menu__toggle @endif">
+        <a href="{{--{{url('gwc/'.$category->link)}}--}}" class="kt-menu__link @if($category->link=='javascript:;') kt-menu__toggle @endif">
             @if($category->parent_id==0)
                 <i class="kt-menu__link-icon {{$category->icon}}"></i>
             @else

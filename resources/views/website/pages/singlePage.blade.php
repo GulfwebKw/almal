@@ -1,8 +1,16 @@
 @extends('website.master')
 
 @section('content')
-    <section class="top_panel_image top_panel_image_1"
-             style="background-image:url({{$category['singlepage']?url('/uploads/single-page-menu/'.$category['singlepage']->header_image):url('/uploads/categories/'.$category->image)}});">
+    @if(optional($category['singlepage'])->header_image === 'single-page-menu-header_image-890ac920f9203842c60333d916c4a5be.jpg')
+        @php
+            $header = app()->getLocale() == 'ar' ? 'single-page-menu-header_image-890ac920f9203842c60333d916c4a5be_ar.jpg' : 'single-page-menu-header_image-890ac920f9203842c60333d916c4a5be.jpg';
+        @endphp
+        <section class="top_panel_image top_panel_image_1"
+             style="background-image:url({{$category['singlepage']?url('/uploads/single-page-menu/'.$header):url('/uploads/categories/'.$category->image)}});">
+    @else
+        <section class="top_panel_image top_panel_image_1"
+                 style="background-image:url({{$category['singlepage']?url('/uploads/single-page-menu/'.$category['singlepage']->header_image):url('/uploads/categories/'.$category->image)}});">
+    @endif
         <div class="top_panel_image_hover"></div>
         <div class="top_panel_image_header">
             <h1 class="top_panel_image_title">{{$category->translate($lang)->title}}</h1>

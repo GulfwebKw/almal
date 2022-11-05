@@ -60,6 +60,7 @@
                                                                                               class="sc_form_username"
                                                                                               name="name"
                                                                                               placeholder="{{__('adminMessage.name')}}"
+                                                                                              value="{{ old('name') }}"
                                                                                               type="text"></div>
                                 </div>
                                 <div class="column-1_2">
@@ -67,6 +68,7 @@
                                                                                               class="sc_form_email"
                                                                                               name="parent_school"
                                                                                               placeholder="{{__('adminMessage.parentidschoolnumber')}}"
+                                                                                              value="{{ old('parent_school') }}"
                                                                                               type="text"></div>
                                 </div>
                                 <br/><br/>
@@ -76,6 +78,7 @@
                                                                                               class="sc_form_email"
                                                                                               name="mobile"
                                                                                               placeholder="{{__('adminMessage.mobile')}}"
+                                                                                              value="{{ old('mobile') }}"
                                                                                               type="text"></div>
                                 </div>
                                 <div class="column-1_2">
@@ -83,6 +86,7 @@
                                                                                               class="sc_form_email"
                                                                                               name="email"
                                                                                               placeholder="{{__('adminMessage.email')}}"
+                                                                                              value="{{ old('email') }}"
                                                                                               type="text"></div>
                                 </div>
                                 <br/><br/>
@@ -91,7 +95,7 @@
                                     <select class="sc_form_item sc_form_field label_over" name="school" id=""
                                             style="min-width: 210px">
                                         <option value="" class="" disabled selected>{{__('adminMessage.selectschool')}}</option>
-                                        <option value="Al-Bayan Bilingual School" class="">Al-Bayan Bilingual School
+                                        <option value="Al-Bayan Bilingual School" {{ old('school') === 'Al-Bayan Bilingual School' ? 'selected' : ''}} class="">Al-Bayan Bilingual School
                                         </option>
                                     </select>
                                 </div>
@@ -100,10 +104,10 @@
                                             id="" style="min-width: 210px">
                                         <option value="" class="" disabled selected>{{__('adminMessage.numberofinstallmentsrequired')}}
                                         </option>
-                                        <option value="9" class="">9</option>
-                                        <option value="10" class="">10</option>
-                                        <option value="11" class="">11</option>
-                                        <option value="12" class="">12</option>
+                                        <option value="9" {{ old('installments_number') == 9 ? 'selected' : ''}} class="">9</option>
+                                        <option value="10" {{ old('installments_number') == 10 ? 'selected' : ''}} class="">10</option>
+                                        <option value="11" {{ old('installments_number') == 11 ? 'selected' : ''}} class="">11</option>
+                                        <option value="12" {{ old('installments_number') == 12 ? 'selected' : ''}} class="">12</option>
                                     </select>
                                 </div>
                                 <br/><br/>
@@ -113,6 +117,7 @@
                                                                                               class="sc_form_email"
                                                                                               name="amount"
                                                                                               placeholder="{{__('adminMessage.loanamountrequired')}}"
+                                                                                              value="{{ old('amount') }}"
                                                                                               type="text"></div>
                                 </div>
                                 <div class="column-1_2">

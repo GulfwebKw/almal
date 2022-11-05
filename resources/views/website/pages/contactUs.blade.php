@@ -33,7 +33,7 @@
                                     <li class="sc_list_item"><span class="sc_list_icon icon-print my-ico"></span>Fax:
                                         <span dir="ltr">{{getSetting('setting')->fax}} </span></li>
                                     <li class="sc_list_item"><span class="sc_list_icon icon-mail-light my-ico"></span>Email:
-                                        {{getSetting('setting')->email}}
+                                        {!! str_replace('@', '<span style="font-family: arial">@</span>', getSetting('setting')->email) !!}
                                     </li>
                                 </ul>
                               @if($lang=='en')
@@ -92,13 +92,14 @@
                                                         class="sc_form_username"
                                                         name="username"
                                                         placeholder="{{__('adminMessage.name')}}"
+                                                        value="{{ old('username') }}"
                                                         type="text"></div>
                                         </div>
 
                                         <div class="column-1_1 mb-20">
                                             <div class="sc_form_item sc_form_field label_over">
                                                 <input aria-required="true" class="sc_form_email" name="email"
-                                                       placeholder="{{__('adminMessage.email')}}" type="text">
+                                                       placeholder="{{__('adminMessage.email')}}" value="{{ old('email') }}" type="text">
                                             </div>
                                         </div>
                                         <div class="column-1_1 mb-20">
@@ -106,7 +107,7 @@
                                                     style="min-width: 210px">
                                                 <option value="" class="" disabled selected>{{__('adminMessage.selectsubject')}}</option>
                                                 @foreach($subjects as $subject)
-                                                <option value="{{$subject['title_en']}}" class="">{{$subject['title_'.$lang]}}
+                                                <option {{ old('subject') == $subject['title_en'] ? 'selected' : ''}} value="{{$subject['title_en']}}" class="">{{$subject['title_'.$lang]}}
                                                 </option>
                                                 @endforeach
                                             </select>
@@ -114,7 +115,7 @@
                                     </div>
                                     <div class="sc_form_item sc_form_message mb-20">
                                     <textarea aria-required="true" class="sc_form_message" name="message"
-                                              placeholder="{{__('adminMessage.message')}}" rows="5"></textarea>
+                                              placeholder="{{__('adminMessage.message')}}" rows="5">{{ old('message') }}</textarea>
                                     </div>
                                     <div class="form-group{{ $errors->has('captcha') ? ' has-error' : '' }}" style="display:flex;align-items:center">
                                      
